@@ -1,0 +1,27 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Data (Too large for GitHub)
+data/raw/
+data/processed/
+*.csv
+!batch_test.csv
+
+# Models are small enough to be pushed
+!models/
+
+# Virtual Environments
+venv/
+env/
+ENV/
+.env
+
+# MacOS
+.DS_Store
+
+# Streamlit/Jupyter
+.ipynb_checkpoints/
+crime_ring.html
+forensic_report.pdf
