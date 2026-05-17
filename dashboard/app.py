@@ -196,33 +196,27 @@ if menu == "Exploratory Data Analysis":
         c1, c2 = st.columns(2)
         with c1:
             st.markdown("### 🥧 Class Imbalance Distribution")
-            st.markdown("<div class='glass-card'>", unsafe_allow_html=True)
             class_counts = df['Class'].value_counts().reset_index()
             class_counts.columns = ['Class', 'Count']
             class_counts['Label'] = class_counts['Class'].map({0: 'Safe', 1: 'Fraud'})
             fig_pie = px.pie(class_counts, values='Count', names='Label', color='Label', color_discrete_map={'Safe': '#00ffcc', 'Fraud': '#ff0055'}, hole=0.5)
             fig_pie.update_layout(paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)', font=dict(color='white'), margin=dict(t=0, b=0, l=0, r=0))
             st.plotly_chart(fig_pie, use_container_width=True)
-            st.markdown("</div>", unsafe_allow_html=True)
             
         with c2:
             st.markdown("### 🕒 Transaction Time Distribution")
-            st.markdown("<div class='glass-card'>", unsafe_allow_html=True)
             # Sample for performance
             df_time = df.sample(10000, random_state=42)
             fig_hist = px.histogram(df_time, x="Time", color="Class", barmode="overlay", color_discrete_sequence=['#00ffcc', '#ff0055'])
             fig_hist.update_layout(paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)', font=dict(color='white'), margin=dict(t=0, b=0, l=0, r=0))
             st.plotly_chart(fig_hist, use_container_width=True)
-            st.markdown("</div>", unsafe_allow_html=True)
             
         st.markdown("### 🧬 Feature Correlation Heatmap")
-        st.markdown("<div class='glass-card'>", unsafe_allow_html=True)
         # Sample for heatmap to avoid memory crash
         df_corr = df.sample(5000, random_state=42).corr()
         fig_corr = px.imshow(df_corr, color_continuous_scale='RdBu_r', aspect='auto')
         fig_corr.update_layout(paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)', font=dict(color='white'))
         st.plotly_chart(fig_corr, use_container_width=True)
-        st.markdown("</div>", unsafe_allow_html=True)
     else:
         st.error("Dataset not found. Please ensure the data exists in data/raw/")
 
