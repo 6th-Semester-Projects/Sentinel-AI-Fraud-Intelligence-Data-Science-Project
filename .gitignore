@@ -13,6 +13,7 @@ data/processed/
 
 # Models are small enough to be pushed
 !models/
+!models/metrics.csv
 
 # Virtual Environments
 venv/
