@@ -12,3 +12,4 @@ networkx==3.4.2
 pyvis==0.3.2
 gTTS==2.5.4
 imbalanced-learn==0.13.0
+matplotlib==3.10.0
