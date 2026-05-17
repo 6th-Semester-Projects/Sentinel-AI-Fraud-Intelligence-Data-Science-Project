@@ -13,9 +13,11 @@ os.makedirs(PROCESSED_DATA_DIR, exist_ok=True)
 os.makedirs(MODELS_DIR, exist_ok=True)
 
 # Data File Path
-DATA_FILE = os.path.join(BASE_DIR, "data", "raw", "creditcard.csv")
+DATA_FILE = os.path.join(BASE_DIR, "data", "raw", "creditcard.csv.zip")
 if not os.path.exists(DATA_FILE):
-    DATA_FILE = os.path.join(BASE_DIR, "data", "raw", "creditcard_sample.csv")
+    DATA_FILE = os.path.join(BASE_DIR, "data", "raw", "creditcard.csv")
+    if not os.path.exists(DATA_FILE):
+        DATA_FILE = os.path.join(BASE_DIR, "data", "raw", "creditcard_sample.csv")
 
 # Model parameters
 RANDOM_STATE = 42
