@@ -8,6 +8,7 @@ data/raw/
 data/processed/
 *.csv
 !batch_test.csv
+!data/raw/creditcard_sample.csv
 
 # Models are small enough to be pushed
 !models/
